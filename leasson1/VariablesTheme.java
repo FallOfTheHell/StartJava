@@ -135,6 +135,7 @@ public class VariablesTheme {
         System.out.println(units + "\n");
 
         //9 task
+        System.out.println("9. Вывод времени");
         int numSec = 86399;
         int hour = numSec/3600;
         int min = numSec/60 % 60;
