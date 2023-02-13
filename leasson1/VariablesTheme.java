@@ -1,4 +1,3 @@
-import static java.awt.AlphaComposite.XOR;
 
 public class VariablesTheme {
 
@@ -12,7 +11,7 @@ public class VariablesTheme {
         float cpu = 3.60f;
         double hertz = 2.4;
         char coreName = 'I';
-        boolean monitor = true;
+        boolean personal = true;
         System.out.println("ram " + ram);
         System.out.println("core " + core);
         System.out.println("storage " + storage);
@@ -20,7 +19,7 @@ public class VariablesTheme {
         System.out.println("cpu " + cpu);
         System.out.println("hertz " + hertz);
         System.out.println("coreName " + coreName);
-        System.out.println("monitor " + monitor + "\n");
+        System.out.println("monitor " + personal + "\n");
 
         //2 task
         System.out.println("2. Расчет стоимости товара со скидкой");
@@ -46,16 +45,10 @@ public class VariablesTheme {
         short numShort = Short.MAX_VALUE;
         int numInteger = Integer.MAX_VALUE;
         long numLong = Long.MAX_VALUE;
-//        System.out.println(numByte + " " + ++numByte + " " + --numByte + "\n");
-//        System.out.println(numShort + " " + ++numShort + " " + --numShort + "\n");
-//        System.out.println(numInteger + " " + ++numInteger + " " + --numInteger + "\n");
-//        System.out.println(numLong + " " + ++numLong + " " + --numLong + "\n");
         System.out.println(numByte + " " + ++numByte + " " + --numByte + "\n" +
-                        numShort + " " + ++numShort + " " + --numShort + "\n" +
-                        numInteger + " " + ++numInteger + " " + --numInteger + "\n" +
-                        numLong + " " + ++numLong + " " + --numLong + "\n");
-
-
+                numShort + " " + ++numShort + " " + --numShort + "\n" +
+                numInteger + " " + ++numInteger + " " + --numInteger + "\n" +
+                numLong + " " + ++numLong + " " + --numLong + "\n");
 
         //5 task
         System.out.println("5. Перестановка значений переменных");
@@ -94,32 +87,31 @@ public class VariablesTheme {
         char circumflexAccent = '^';
         char lowLine = '_';
 
-        System.out.println(numberSign + " - " + 35);
-        System.out.println(ampersand + " - " + 38);
-        System.out.println(commercialAt + " - " + 64);
-        System.out.println(circumflexAccent + " - " + 94);
-        System.out.println(lowLine + " - " + 95 + "\n");
+        System.out.println(numberSign + " - " + (int) numberSign);
+        System.out.println(ampersand + " - " + (int) ampersand);
+        System.out.println(commercialAt + " - " + (int) commercialAt);
+        System.out.println(circumflexAccent + " - " + (int) circumflexAccent);
+        System.out.println(lowLine + " - " + (int) lowLine + "\n");
 
         //7 task
         System.out.println("7. Вывод в консоль ASCII-арт Дюка\n");
-        char arg1 = '/';
-        char arg2 = '\\';
-        char arg3 = '(';
-        char arg4 = ')';
-        char arg5 = '_';
-        System.out.println("    " + arg1 + "" + arg2);
-        System.out.println("   " + arg1 + "  " + arg2);
-        System.out.println("  " + arg1 + arg5 + arg3 + " " + arg4 + arg2);
-        System.out.println(" " + arg1 + "      " + arg2);
-        System.out.println("" + arg1 + arg5 + arg5 + arg5 + arg5 + arg1 + arg2 + arg5 + arg5 + arg2);
+        char solidus = '/';
+        char reverseSolidus = '\\';
+        char leftParenthesis = '(';
+        char rightParenthesis = ')';
+        System.out.println("    " + solidus + "" + reverseSolidus);
+        System.out.println("   " + solidus + "  " + reverseSolidus);
+        System.out.println("  " + solidus + lowLine + leftParenthesis + " " + rightParenthesis + reverseSolidus);
+        System.out.println(" " + solidus + "      " + reverseSolidus);
+        System.out.println("" + solidus + lowLine + lowLine + lowLine + lowLine + solidus + reverseSolidus + lowLine + lowLine + reverseSolidus + "\n");
 
         //8 task
         System.out.println("8. Вывод количества сотен, десятков и единиц числа");
         int num123 = 123;
         int hundreds = num123 / 100;
-        int tens = num123 / 10;
+        int tens = (num123 - (hundreds * 100)) / 10;
         int ones = num123 % 10;
-        System.out.println(hundreds + " " + tens + " " + ones);
+        System.out.println(hundreds + " " + tens + " " + ones + "\n");
 
         //9 task
         System.out.println("9. Вывод времени");
