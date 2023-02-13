@@ -33,6 +33,7 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Ничего \n");
         }
+        System.out.println();
 
         //2 task
         System.out.println("2. Поиск max и min числа");
@@ -45,6 +46,7 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Число num1 < num2");
         }
+        System.out.println();
 
         //3 task
         System.out.println("3. Проверка числа");
@@ -56,12 +58,23 @@ public class IfElseStatementTheme {
 
         } else {
             System.out.println("Отрицательное число: " + anyNumber);
-            System.out.println("Нечетное число: " + anyNumber);
+            System.out.println("Нечетное число: " + anyNumber + "\n");
         }
 
         //4 task
+        System.out.println("4. Поиск одинаковых цифр в числах");
         int number1 = 123;
         int number2 = 234;
+        int number3 = 0;
+
+        if (number1 == number2){
+            number3++;
+            if (number3 == 1){
+                System.out.println("1");
+            } else {
+                System.out.println("2");
+            }
+        }
 
         //5 task
         System.out.println("5. Определение символа по его коду");
@@ -75,6 +88,7 @@ public class IfElseStatementTheme {
         } else if (char1 == '}') {
             System.out.println("не буква и не число");
         }
+        System.out.println();
 
         //6 task
         System.out.println("6. Подсчет суммы вклада и начисленных банком %");
@@ -100,6 +114,7 @@ public class IfElseStatementTheme {
             System.out.println("Hачисленный %: " + percent);
             System.out.println("Итоговая сумма с %: " + summaPercent);
         }
+        System.out.println();
 
         //7 task
         System.out.println("7. Определение оценки по предметам");
@@ -134,7 +149,7 @@ public class IfElseStatementTheme {
             System.out.println("5 Програмирование");
         }
         System.out.println("Средний балл оценок по предметам: " + amount / 2);
-        System.out.println("Cредний % по предметам: " + (programming + story) / 2 + "%");
+        System.out.println("Cредний % по предметам: " + (programming + story) / 2 + "%" + "\n");
 
 
         //8 task
@@ -142,7 +157,7 @@ public class IfElseStatementTheme {
         int room = 5000;
         int product = 13000;
         int primeCost = 9000;
-        int profit = 0;
+        int profit;
 
         profit = (product - (primeCost + room)) * 12;
         if (profit >= 0) {
@@ -151,29 +166,38 @@ public class IfElseStatementTheme {
             System.out.println("прибыль за год: " + profit);
 
         }
+        System.out.println();
 
         //9 task
         System.out.println("9. Подсчет количества банкнот");
         int amountOfMoney = 567;
+        int numberOfBunknotes1 = 50;
+        int numberOfBunknotes10 = 5;
+        int numberOfBunknotes100 = 10;
+        int hundreds = amountOfMoney / 100;
+        int tens = (amountOfMoney - (hundreds * 100)) / 10;
+        int ones = amountOfMoney % 10;
+        int need1 = ones;
+        int need10 = tens;
+        int need100 = hundreds;
 
-        int banknotes100 = 10;
-        int banknotes10 = 5;
-        int banknotes1 = 50;
-        int count;
-        int denomination100 = 100;
-        int denomination10 = 10;
-        int denomination1 = 1;
+        if (hundreds >= numberOfBunknotes100){
+            need100 = numberOfBunknotes100;
+            tens += (hundreds - numberOfBunknotes100) * 10;
+        }
 
-        System.out.println("Номиналы банкнот: " + denomination100 + " купюр по " + "100 USD");
-        System.out.println("Номиналы банкнот: " + denomination10 + " купюр по " + "10 USD");
-        System.out.println("Номиналы банкнот: " + denomination1 + " купюр по " + "1 USD");
-        System.out.println("Нужно снять сумму: " + amountOfMoney);
+        if (tens >= numberOfBunknotes10){
+            need10 = numberOfBunknotes10;
+            need1 += (tens - numberOfBunknotes10) * 10;
+        }
 
-        int hundred = amountOfMoney / 100;
-        int ten = amountOfMoney / 10;
-       
-        System.out.println(hundred);
-        System.out.println(ten);
+        if (ones <= numberOfBunknotes1){
+            System.out.println("Номиналы банкнот\n" + "100 в количестве - " + need100
+                    + ",\n" + "10 в количестве - " + need10 + ",\n"
+                    + "1 в количестве - " + need1 + "\nвыдаваемая сумма: " + amountOfMoney);
+        } else {
+            System.out.println("В банкомате недостаточно средств");
+        }
 
     }
 }
