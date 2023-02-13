@@ -12,24 +12,24 @@ public class VariablesTheme {
         float cpu = 3.60f;
         double hertz = 2.4;
         char coreName = 'I';
-        boolean bol = true;
-        System.out.println("Byte " + ram);
-        System.out.println("Short " + core);
-        System.out.println("Integer " + storage);
-        System.out.println("Long " + videoCard);
-        System.out.println("Float " + cpu);
-        System.out.println("Double " + hertz);
-        System.out.println("Character " + coreName);
-        System.out.println("Boolean " + bol + "\n");
+        boolean monitor = true;
+        System.out.println("ram " + ram);
+        System.out.println("core " + core);
+        System.out.println("storage " + storage);
+        System.out.println("videoCard " + videoCard);
+        System.out.println("cpu " + cpu);
+        System.out.println("hertz " + hertz);
+        System.out.println("coreName " + coreName);
+        System.out.println("monitor " + monitor + "\n");
 
         //2 task
         System.out.println("2. Расчет стоимости товара со скидкой");
         int pricePen = 100;
         int priceBook = 200;
-        double discount = (pricePen + priceBook) * 0.89;
-        double discountPrice = (pricePen + priceBook) - discount;
+        double discountSum = (pricePen + priceBook) * 0.89;
+        double discountPrice = (pricePen + priceBook) - discountSum;
         System.out.println("сумма скидки: " + discountPrice);
-        System.out.println("общая стоимость товаров со скидкой: " + discount + "\n");
+        System.out.println("общая стоимость товаров со скидкой: " + discountSum + "\n");
 
         //3 task
         System.out.println("3. Вывод слова JAVA");
@@ -43,36 +43,19 @@ public class VariablesTheme {
         System.out.println("4. Вывод min и max значений целых числовых типов");
 
         byte numByte = Byte.MAX_VALUE;
-        System.out.println(numByte);
-        numByte++;
-        System.out.println(numByte);
-        numByte--;
-        System.out.println(numByte + "\n");
-
         short numShort = Short.MAX_VALUE;
-        System.out.println(numShort);
-        numShort++;
-        System.out.println(numShort);
-        numShort--;
-        System.out.println(numShort + "\n");
-
         int numInteger = Integer.MAX_VALUE;
-        System.out.println(numInteger);
-        numInteger++;
-        System.out.println(numInteger);
-        numInteger--;
-        System.out.println(numInteger + "\n");
-
         long numLong = Long.MAX_VALUE;
-        System.out.println(numLong);
-        numLong++;
-        System.out.println(numLong);
-        numLong--;
-        System.out.println(numLong + "\n");
+//        System.out.println(numByte + " " + ++numByte + " " + --numByte + "\n");
+//        System.out.println(numShort + " " + ++numShort + " " + --numShort + "\n");
+//        System.out.println(numInteger + " " + ++numInteger + " " + --numInteger + "\n");
+//        System.out.println(numLong + " " + ++numLong + " " + --numLong + "\n");
+        System.out.println(numByte + " " + ++numByte + " " + --numByte + "\n" +
+                        numShort + " " + ++numShort + " " + --numShort + "\n" +
+                        numInteger + " " + ++numInteger + " " + --numInteger + "\n" +
+                        numLong + " " + ++numLong + " " + --numLong + "\n");
 
 
-        boolean numBoolean = Boolean.TRUE;
-        System.out.println(numBoolean + "\n");
 
         //5 task
         System.out.println("5. Перестановка значений переменных");
@@ -83,7 +66,6 @@ public class VariablesTheme {
         System.out.println("C помощью третьей переменной: \n" +
                 "num1 = " + num1 + ", num2 = " + num2);
         int num3 = num1;
-
         num1 = num2;
         num2 = num3;
         System.out.println("Новые значения переменных: " + "num1 = " + num1 + ", num2 = " + num2 + "\n");
@@ -91,9 +73,9 @@ public class VariablesTheme {
         System.out.println("C помощью арифметических операций: \n" +
                 "num1 = " + num1 + ", num2 = " + num2);
 
-        num1 = num1 + num2;
+        num1 += num2;
         num2 = num1 - num2;
-        num1 = num1 - num2;
+        num1 -= num2;
 
         System.out.println("Новые значения переменных: " + "num1 = " + num1 + ", num2 = " + num2 + "\n");
 
@@ -106,40 +88,45 @@ public class VariablesTheme {
         //6 task
         System.out.println("6. Вывод символов и их кодов");
 
-        char grid = '#';
-        int c35 = 35;
-        char and = '&';
-        int c38 = 38;
-        char mail = '@';
-        int c64 = 64;
-        char degree = '^';
-        int c94 = 94;
-        char underline = '_';
-        int c95 = 95;
-        System.out.println(grid + " - " + c35);
-        System.out.println(and + " - " + c38);
-        System.out.println(mail + " - " + c64);
-        System.out.println(degree + " - " + c94);
-        System.out.println(underline + " - " + c95 + "\n");
+        char numberSign = '#';
+        char ampersand = '&';
+        char commercialAt = '@';
+        char circumflexAccent = '^';
+        char lowLine = '_';
+
+        System.out.println(numberSign + " - " + 35);
+        System.out.println(ampersand + " - " + 38);
+        System.out.println(commercialAt + " - " + 64);
+        System.out.println(circumflexAccent + " - " + 94);
+        System.out.println(lowLine + " - " + 95 + "\n");
 
         //7 task
+        System.out.println("7. Вывод в консоль ASCII-арт Дюка\n");
+        char arg1 = '/';
+        char arg2 = '\\';
+        char arg3 = '(';
+        char arg4 = ')';
+        char arg5 = '_';
+        System.out.println("    " + arg1 + "" + arg2);
+        System.out.println("   " + arg1 + "  " + arg2);
+        System.out.println("  " + arg1 + arg5 + arg3 + " " + arg4 + arg2);
+        System.out.println(" " + arg1 + "      " + arg2);
+        System.out.println("" + arg1 + arg5 + arg5 + arg5 + arg5 + arg1 + arg2 + arg5 + arg5 + arg2);
 
         //8 task
         System.out.println("8. Вывод количества сотен, десятков и единиц числа");
         int num123 = 123;
-        int hundred = num123 / 100;
-        int ten = num123 / 10;
-        int units = num123 % 10;
-        System.out.println(hundred);
-        System.out.println(ten);
-        System.out.println(units + "\n");
+        int hundreds = num123 / 100;
+        int tens = num123 / 10;
+        int ones = num123 % 10;
+        System.out.println(hundreds + " " + tens + " " + ones);
 
         //9 task
         System.out.println("9. Вывод времени");
         int numSec = 86399;
-        int hour = numSec/3600;
-        int min = numSec/60 % 60;
-        int sec = numSec % 60;
-        System.out.println(hour + ":" + min + ":" + sec);
+        int hours = numSec / 3600;
+        int mins = numSec / 60 % 60;
+        int secs = numSec % 60;
+        System.out.println(hours + ":" + mins + ":" + secs);
     }
 }
