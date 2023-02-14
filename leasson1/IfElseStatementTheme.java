@@ -64,17 +64,36 @@ public class IfElseStatementTheme {
         //4 task
         System.out.println("4. Поиск одинаковых цифр в числах");
         int number1 = 123;
-        int number2 = 234;
-        int number3 = 0;
+        int number2 = 223;
+        System.out.println("Число 1: " + number1 + "\n" + "Число 2: " + number2);
 
-        if (number1 == number2){
-            number3++;
-            if (number3 == 1){
-                System.out.println("1");
+        int hundreds1 = number1 / 100;
+        int tens1 = (number1 - (hundreds1 * 100)) / 10;
+        int ones1 = number1 % 10;
+
+        int hundreds2 = number2 / 100;
+        int tens2 = (number2 - (hundreds2 * 100)) / 10;
+        int ones2 = number2 % 10;
+
+        if (hundreds1 != hundreds2 || tens1 != tens2 || ones1 != ones2) {
+            if (hundreds1 == hundreds2) {
+                System.out.println("Сотни Числа: " + hundreds1 + " и " + hundreds2 + " одинаковые" + " 1 разряд");
             } else {
-                System.out.println("2");
+                System.out.println("Нет одиковых цифр в 1 разряде");
             }
+            if (tens1 == tens2) {
+                System.out.println("Числа: " + tens1 + " и " + tens2 + " одинаковые" + " 2 разряд");
+            } else {
+                System.out.println("Нет одиковых цифр во 2 разряде");
+            }
+            if (ones1 == ones2) {
+                System.out.println("Числа: " + ones1 + " и " + ones2 + " одинаковые" + " 3 разряд");
+            } else {
+                System.out.println("Нет одиковых цифр в 3 разряде");
+            }
+            return;
         }
+        System.out.println();
 
         //5 task
         System.out.println("5. Определение символа по его коду");
@@ -181,17 +200,17 @@ public class IfElseStatementTheme {
         int need10 = tens;
         int need100 = hundreds;
 
-        if (hundreds >= numberOfBunknotes100){
+        if (hundreds >= numberOfBunknotes100) {
             need100 = numberOfBunknotes100;
             tens += (hundreds - numberOfBunknotes100) * 10;
         }
 
-        if (tens >= numberOfBunknotes10){
+        if (tens >= numberOfBunknotes10) {
             need10 = numberOfBunknotes10;
             need1 += (tens - numberOfBunknotes10) * 10;
         }
 
-        if (ones <= numberOfBunknotes1){
+        if (ones <= numberOfBunknotes1) {
             System.out.println("Номиналы банкнот\n" + "100 в количестве - " + need100
                     + ",\n" + "10 в количестве - " + need10 + ",\n"
                     + "1 в количестве - " + need1 + "\nвыдаваемая сумма: " + amountOfMoney);
