@@ -110,11 +110,9 @@ public class VariablesTheme {
         //8 task
         System.out.println("8. Вывод количества сотен, десятков и единиц числа");
         int number = 123;
-        int number100 = 100;
-        int number10 = 10;
-        int hundreds = number / number100;
-        int tens = (number - (hundreds * number100)) / number10;
-        int ones = number % number10;
+        int ones = number % 10;
+        int tens = number / 10 % 10;
+        int hundreds = number / 100;
 
         System.out.println(hundreds + " " + tens + " " + ones + "\n");
 
