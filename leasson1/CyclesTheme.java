@@ -1,20 +1,21 @@
+package leasson1;
+
 public class CyclesTheme {
     public static void main(String[] args) {
         //1 task
         System.out.println("1. Подсчет суммы четных и нечетных чисел");
-        int even = -10;
-        int odd = 21;
+        int num12 = -10;
+        int num13 = 21;
         int sumEven = 0;
         int sumOdd = 0;
         do {
-            if (even % 2 == 0) {
-                sumEven += even;
+            if (num12 % 2 == 0) {
+                sumEven += num12;
+            }else {
+                sumOdd += num12;
             }
-            if (even % 1 == 0) {
-                sumOdd += even;
-            }
-            even++;
-        } while (even <= odd);
+            num12++;
+        } while (num12 <= num13);
         System.out.println("в промежутке [-10, 21] сумма четных чисел = " + sumEven + ", а нечетных = " + sumOdd);
 
         //2 task
@@ -22,38 +23,49 @@ public class CyclesTheme {
         int num1 = 10;
         int num2 = 5;
         int num3 = -1;
-        for (int i = -1; i < num1 + num2 + num3; i++) {
-            while (i == num1 || i == num2 || i == num3) {
-                System.out.println(i);
-                break;
-            }
+
+        int min = num1;
+        if (num2 < min) {
+            min = num2;
+        }
+        if (num3 < min) {
+            min = num3;
+        }
+
+        int max = num1;
+        if (num2 > max) {
+            max = num2;
+        }
+        if (num3 > max) {
+            max = num3;
+        }
+
+        for (int i = max - 1; i > min; i--) {
+            System.out.print(i + " ");
         }
 
         //3 task
-        System.out.println("\n3. Вывод реверсивного числа и суммы его цифр");
+        System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр");
 
         int num4 = 1234;
         int sum = 0;
-        int reversedNumber = 0;
-        while(num4 != 0) {
+
+        while(num4 > 0) {
             int digit = num4 % 10;
-            reversedNumber = reversedNumber * 10 + digit;
+            sum += digit;
             num4 /= 10;
+            System.out.println(digit);
         }
-        System.out.println("Реверсия числа: " + reversedNumber);
-        while (reversedNumber != 0) {
-            sum += reversedNumber % 10;
-            reversedNumber /= 10;
-        }
+
         System.out.println("Сумма цифр: " + sum);
 
         //4 task
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
 
-        int num5 = 24;
-        int count = 0;
-        for (int i = 1; i < num5; i += 2) {
-            System.out.printf("%2d ", i);
+        int num5 = 30;
+        int count = 1;
+        for (int i = 1; i <= num5; i += 2) {
+            System.out.printf("%3d ", i);
             count++;
             if (count == 5) {
                 System.out.println();
@@ -62,23 +74,23 @@ public class CyclesTheme {
         }
         int missingCount = 5 - count;
         for (int i = 0; i < missingCount; i++) {
-            System.out.printf("%2d ", 0);
+            System.out.printf("%3d ", 0);
         }
 
         //5 task
         System.out.println("\n\n5. Проверка количества двоек на четность/нечетность");
 
         int num6 = 3242592;
-        int counts = 0;
+        int countTwos = 0;
 
         while (num6 != 0) {
             if (num6 % 10 == 2){
-                counts++;
+                countTwos++;
             }
             num6 /= 10;
         }
         System.out.print("Число " + num6 + " содержит ");
-        if (counts % 2 == 0){
+        if (countTwos % 2 == 0) {
             System.out.println(count + " четное количество двоек");
         } else {
             System.out.println(count + " нечетное количество двоек");

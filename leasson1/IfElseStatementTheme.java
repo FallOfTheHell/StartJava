@@ -1,3 +1,5 @@
+package leasson1;
+
 public class IfElseStatementTheme {
     public static void main(String[] args) {
         //1 task
@@ -36,13 +38,13 @@ public class IfElseStatementTheme {
         //2 task
         System.out.println("\n2. Поиск max и min числа");
         int num1 = 10;
-        int num2 = 10;
+        int num2 = 11;
         if (num1 > num2) {
-            System.out.println("Число num1 > num2");
+            System.out.println("Число: " + num1 + " > " + num2);
         } else if (num1 == num2) {
             System.out.println("Числа равны");
         } else {
-            System.out.println("Число num1 < num2");
+            System.out.println("Число: " + num1 + " < " + num2);
         }
 
         //3 task
@@ -61,22 +63,22 @@ public class IfElseStatementTheme {
                 System.out.println("Отрицательное число: " + anyNumber);
             }
         } else {
-            System.out.println("Число является 0");
+            System.out.println("Число является: " + anyNumber);
         }
 
         //4 task
         System.out.println("\n4. Поиск одинаковых цифр в числах");
-        int numOne = 551;
-        int numTwo = 225;
-        System.out.println("Число 1: " + numOne + "\n" + "Число 2: " + numTwo);
+        int num3 = 551;
+        int num4 = 225;
+        System.out.println("Число 1: " + num3 + "\n" + "Число 2: " + num4);
 
-        int hundreds1 = numOne / 100;
-        int tens1 = numOne / 10 % 10;
-        int ones1 = numOne % 10;
+        int hundreds1 = num3 / 100;
+        int tens1 = num3 / 10 % 10;
+        int ones1 = num3 % 10;
 
-        int hundreds2 = numTwo / 100;
-        int tens2 = numTwo / 10 % 10;
-        int ones2 = numTwo % 10;
+        int hundreds2 = num4 / 100;
+        int tens2 = num4 / 10 % 10;
+        int ones2 = num4 % 10;
 
         if (hundreds1 == hundreds2 || tens1 == tens2 || ones1 == ones2) {
             if (hundreds1 == hundreds2) {
@@ -109,22 +111,21 @@ public class IfElseStatementTheme {
 
         //6 task
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
-        double sumDeposit = 90_000.0;
+        int sumDeposit = 100_001;
         double interestRate = 0.05;
 
-        if (sumDeposit == 100_000 || sumDeposit < 300_000) {
+        if (sumDeposit >= 100_000 || sumDeposit <= 300_000) {
             interestRate = 0.07;
         } else if (sumDeposit > 300_000) {
             interestRate = 0.10;
         }
-        double dailyInterestRate = interestRate / 365;
-        double yearlyInterest = (sumDeposit * dailyInterestRate) * 365;
 
-        double depositAmount = sumDeposit + yearlyInterest;
+        interestRate = sumDeposit * interestRate;
+        double totalAmount = sumDeposit + interestRate;
 
         System.out.println("Сумма вклада: " + sumDeposit);
-        System.out.println("Hачисленный %: " + yearlyInterest);
-        System.out.println("Итоговая сумма с %: " + depositAmount);
+        System.out.println("Hачисленный %: " + interestRate);
+        System.out.println("Итоговая сумма с %: " + totalAmount);
 
         //7 task
         System.out.println("\n7. Определение оценки по предметам");
@@ -155,7 +156,7 @@ public class IfElseStatementTheme {
         } else if (scoreProgramming >= 0.91) {
             rateProgramming = 5;
         }
-        System.out.println(rateProgramming + " Програмирование");
+        System.out.println(rateProgramming + " Программирование");
 
         double averageScore = (rateHistory + rateProgramming) / 2.0;
 
@@ -169,11 +170,8 @@ public class IfElseStatementTheme {
         int primeCost = 9000;
         int profit = (product - (primeCost + room)) * 12;
 
-        if (profit > 0) {
-            System.out.println("прибыль за год: " + "+" + profit);
-        } else {
-            System.out.println("прибыль за год: " + profit);
-        }
+        String numStr = profit >= 0 ? "+" + profit : String.valueOf(profit);
+        System.out.println("Прибыль за год: " + numStr);
 
         //9 task
         System.out.println("\n9. Подсчет количества банкнот");
