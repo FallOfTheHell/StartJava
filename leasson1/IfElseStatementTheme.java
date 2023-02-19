@@ -111,62 +111,55 @@ public class IfElseStatementTheme {
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
         double sumDeposit = 90_000.0;
         double interestRate = 0.05;
-        int daysInYear = 365;
-        double dailyInterestRate = interestRate / daysInYear;
-        double yearlyInterest = (sumDeposit * dailyInterestRate) * daysInYear;
 
         if (sumDeposit == 100_000 || sumDeposit < 300_000) {
             interestRate = 0.07;
-            dailyInterestRate = interestRate / daysInYear;
-            yearlyInterest = (sumDeposit * dailyInterestRate) * daysInYear;
         } else if (sumDeposit > 300_000) {
             interestRate = 0.10;
-            dailyInterestRate = interestRate / daysInYear;
-            yearlyInterest = (sumDeposit * dailyInterestRate) * daysInYear;
         }
+        double dailyInterestRate = interestRate / 365;
+        double yearlyInterest = (sumDeposit * dailyInterestRate) * 365;
+
         double depositAmount = sumDeposit + yearlyInterest;
+
         System.out.println("Сумма вклада: " + sumDeposit);
         System.out.println("Hачисленный %: " + yearlyInterest);
         System.out.println("Итоговая сумма с %: " + depositAmount);
 
         //7 task
         System.out.println("\n7. Определение оценки по предметам");
+
         double scoreHistory = 0.59;
-        int assessmentByHistory = 0;
+        int rateHistory = 0;
 
         if (scoreHistory <= 0.60) {
-            assessmentByHistory = 2;
-            System.out.println("2 История");
+            rateHistory = 2;
         } else if (scoreHistory == 0.60 || scoreHistory < 0.73) {
-            assessmentByHistory = 3;
-            System.out.println("3 История");
+            rateHistory = 3;
         } else if (scoreHistory == 0.73 || scoreHistory < 0.91) {
-            assessmentByHistory = 4;
-            System.out.println("4 История");
+            rateHistory = 4;
         } else if (scoreHistory >= 0.91) {
-            assessmentByHistory = 5;
-            System.out.println("5 История");
+            rateHistory = 5;
         }
+        System.out.println(rateHistory + " История");
 
         double scoreProgramming = 0.91;
-        int assessmentByProgramming = 0;
+        int rateProgramming = 0;
 
         if (scoreProgramming <= 0.60) {
-            assessmentByProgramming = 2;
-            System.out.println("Програмирование");
+            rateProgramming = 2;
         } else if (scoreProgramming == 0.60 || scoreProgramming < 0.73) {
-            assessmentByProgramming = 3;
-            System.out.println("3 Програмирование");
+            rateProgramming = 3;
         } else if (scoreProgramming == 0.73 || scoreProgramming < 0.91) {
-            assessmentByProgramming = 4;
-            System.out.println("4 Програмирование");
+            rateProgramming = 4;
         } else if (scoreProgramming >= 0.91) {
-            assessmentByProgramming = 5;
-            System.out.println("5 Програмирование");
+            rateProgramming = 5;
         }
-        double average = (assessmentByHistory + assessmentByProgramming) / 2.0;
+        System.out.println(rateProgramming + " Програмирование");
 
-        System.out.println("Средний балл оценок по предметам: " + average);
+        double averageScore = (rateHistory + rateProgramming) / 2.0;
+
+        System.out.println("Средний балл оценок по предметам: " + averageScore);
         System.out.println("Cредний % по предметам: " + (scoreProgramming + scoreHistory) / 2 + "%");
 
         //8 task
@@ -176,15 +169,15 @@ public class IfElseStatementTheme {
         int primeCost = 9000;
         int profit = (product - (primeCost + room)) * 12;
 
-        if (profit >= 0) {
+        if (profit > 0) {
             System.out.println("прибыль за год: " + "+" + profit);
-        } else if (profit < 0) {
+        } else {
             System.out.println("прибыль за год: " + profit);
         }
 
         //9 task
         System.out.println("\n9. Подсчет количества банкнот");
-        int amountOfMoney = 1101;
+        int amountOfMoney = 1100;
 
         int count1 = 50;
         int count10 = 5;
@@ -198,24 +191,28 @@ public class IfElseStatementTheme {
         int need10 = tens;
         int need100 = hundreds;
 
-        if (hundreds > count100) {
-            need100 = count100;
-            tens += (hundreds - count100) * 10;
-        }
+        int denominationAmount100 = count100 * 100;
+        int denominationAmount10 = count10 * 10;
+        int denominationAmount1 = count1;
 
-        if (tens > count10) {
-            need10 = count10;
-            need1 += (tens - count10) * 10;
-        }
+        denominationAmount1 += denominationAmount10 + denominationAmount100;
 
-        if (need1 > count1) {
-            System.out.println("В банкомате недостаточно средств");
+        if (amountOfMoney <= denominationAmount1){
+            if (hundreds > count100) {
+                need100 = count100;
+                tens += (hundreds - count100) * 10;
+            }
+            if (tens > count10) {
+                need10 = count10;
+                need1 += (tens - count10) * 10;
+            }
+            if (need1 <= count1) {
+                System.out.println("Номиналы банкнот\n" + "100 в количестве - " + need100
+                        + ",\n" + "10 в количестве - " + need10 + ",\n"
+                        + "1 в количестве - " + need1 + "\nвыдаваемая сумма: " + amountOfMoney);
+            }
         } else {
-            System.out.println("Номиналы банкнот\n" + "100 в количестве - " + need100
-                    + ",\n" + "10 в количестве - " + need10 + ",\n"
-                    + "1 в количестве - " + need1 + "\nвыдаваемая сумма: " + amountOfMoney);
+            System.out.println("В банкомате недостаточно средств");
         }
-
-
     }
 }
