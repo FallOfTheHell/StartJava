@@ -174,5 +174,28 @@ public class CyclesTheme {
         } else {
             System.out.println("Число не является счастливым");
         }
+
+        //10 task
+        System.out.println("\n10. Вывод таблицы умножения Пифагора");
+
+        System.out.print("  | ");
+        for (int k = 2; k <= 9; k++) {
+            System.out.print(k + "\t");
+        }
+        System.out.println();
+
+        System.out.print("--|");
+        for (int j = 2; j <= 9; j++) {
+            System.out.print("----");
+        }
+        System.out.println();
+        
+        for (int h = 2; h <= 9; h++) {
+            System.out.print(h + " | ");
+            for (int j = 2; j <= 9; j++) {
+                System.out.print(h*j + "\t");
+            }
+            System.out.println();
+        }
     }
 }
