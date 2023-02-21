@@ -171,7 +171,7 @@ public class IfElseStatementTheme {
         int profit = (product - (primeCost + room)) * 12;
 
         String numStr = profit >= 0 ? "+" + profit : String.valueOf(profit);
-        System.out.println("Прибыль за год: " + numStr);
+        System.out.println("Прибыль за год: " + (profit > 0 ? "+" : "") + profit);
 
         //9 task
         System.out.println("\n9. Подсчет количества банкнот");
