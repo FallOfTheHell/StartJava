@@ -1,4 +1,4 @@
-package leasson1;
+package com.startjava.leasson_1.final;
 
 public class GuessNumber {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package leasson2;
+package com.startjava.leasson_2_3.guess;
 
 import java.util.Random;
 import java.util.Scanner;
