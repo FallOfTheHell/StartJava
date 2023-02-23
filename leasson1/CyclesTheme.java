@@ -4,10 +4,12 @@ public class CyclesTheme {
     public static void main(String[] args) {
         //1 task
         System.out.println("1. Подсчет суммы четных и нечетных чисел");
+
         int startRange = -10;
         int endRange = 21;
         int sumEven = 0;
         int sumOdd = 0;
+
         do {
             if (startRange % 2 == 0) {
                 sumEven += startRange;
@@ -62,7 +64,7 @@ public class CyclesTheme {
         //4 task
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
 
-        int num5 = 29;
+        int num5 = 24;
         int count = 1;
 
         for (int i = 1; i <= num5; i += 2) {
@@ -75,16 +77,9 @@ public class CyclesTheme {
         }
 
         int countZeros = 6 - count;
-        if (countZeros > 0 && countZeros != 6){
+        if (countZeros > 0 && countZeros != 6 && count != 1){
             for (int i = 0; i < countZeros; i++) {
-                if (count == 1 && i == 0){
-                    break;
-                }
-                if(i == countZeros - 1){
-                    System.out.printf("%3d\n", 0);
-                }else {
-                    System.out.printf("%3d ", 0);
-                }
+                System.out.printf("%3d ", 0);
             }
         }
 
@@ -112,41 +107,40 @@ public class CyclesTheme {
         System.out.println("\n6. Отображение фигур в консоли");
 
         for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 12; j++) {
+            for (int j = 0; j < 10; j++) {
                 System.out.print("*");
             }
             System.out.println();
         }
         System.out.println();
 
-        int num14 = 5;
-        do {
-            for (int i = num14; i >= 1; i--) {
-                System.out.print("#");
-            }
+        int numLines = 5;
+        int countCharacter = 5;
+        while (numLines > 0) {
+            System.out.print("#".repeat(countCharacter));
             System.out.println();
-            num14--;
-        }while (num14 != 0);
+            numLines--;
+            countCharacter--;
+        }
 
 
-        int num8 = 0;
+        int quantityLine = 0;
+        int countChar = 0;
         do {
-            for (int i = 0; i < num8; i++) {
-                System.out.print("$");
-            }
+            System.out.print("$".repeat(countChar));
             System.out.println();
-            num8++;
-        } while (num8 < 4);
+            quantityLine++;
+            countChar++;
+        } while (quantityLine < 4);
 
-        int num15 = 2;
+        quantityLine = 2;
+        countChar = 2;
         do {
-            for (int i = num15; i >= 1; i--) {
-                System.out.print("$");
-            }
+            System.out.print("$".repeat(countChar));
             System.out.println();
-            num15--;
-        }while (num15 != 0);
-
+            quantityLine--;
+            countChar--;
+        } while (quantityLine > 0);
 
         //7 task
         System.out.println("\n7. Отображение ASCII-символов");
@@ -186,6 +180,7 @@ public class CyclesTheme {
         int sum1 = 0;
         int sum2 = 0;
         int halfNum = 1;
+        
         while (luckyNum > 0) {
             int digit = luckyNum % 10;
             if (halfNum <= 3) {
