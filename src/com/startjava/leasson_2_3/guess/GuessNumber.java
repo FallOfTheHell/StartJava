@@ -18,6 +18,7 @@ public class GuessNumber {
         Random random = new Random();
         int secretNumber = random.nextInt(100) + 1;
         int attempts = 0;
+	System.out.println(secretNumber);
 
         System.out.println("Угадайте число от 1 до 100");
 

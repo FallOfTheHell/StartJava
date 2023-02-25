@@ -64,10 +64,10 @@ public class CyclesTheme {
         //4 task
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
 
-        int num5 = 24;
+        int numFinite = 30;
         int count = 1;
 
-        for (int i = 1; i <= num5; i += 2) {
+        for (int i = 1; i <= numFinite; i += 2) {
             System.out.printf("%3d ", i);
             count++;
             if (count == 6) {
@@ -77,7 +77,7 @@ public class CyclesTheme {
         }
 
         int countZeros = 6 - count;
-        if (countZeros > 0 && countZeros != 6 && count != 1){
+        if (count > 1 && count < 6) {
             for (int i = 0; i < countZeros; i++) {
                 System.out.printf("%3d ", 0);
             }
@@ -115,32 +115,24 @@ public class CyclesTheme {
         System.out.println();
 
         int numLines = 5;
-        int countCharacter = 5;
+        int countChars = 5;
         while (numLines > 0) {
-            System.out.print("#".repeat(countCharacter));
-            System.out.println();
+            System.out.print("#".repeat(countChars) + "\n");
             numLines--;
-            countCharacter--;
+            countChars--;
         }
 
-
-        int quantityLine = 0;
-        int countChar = 0;
+        numLines = 0;
+        countChars = 0;
         do {
-            System.out.print("$".repeat(countChar));
-            System.out.println();
-            quantityLine++;
-            countChar++;
-        } while (quantityLine < 4);
-
-        quantityLine = 2;
-        countChar = 2;
-        do {
-            System.out.print("$".repeat(countChar));
-            System.out.println();
-            quantityLine--;
-            countChar--;
-        } while (quantityLine > 0);
+            System.out.print("$".repeat(countChars) + "\n");
+            if (numLines < 3){
+                countChars++;
+            }else {
+                countChars--;
+            }
+            numLines++;
+        } while (numLines < 6);
 
         //7 task
         System.out.println("\n7. Отображение ASCII-символов");
@@ -157,20 +149,20 @@ public class CyclesTheme {
         //8 task
         System.out.println("\n8. Проверка, является ли число палиндромом");
 
-        int num10 = 123321;
+        int numPalindrome = 123321;
         int reverseNum10 = 0;
-        int copyNum10 = num10;
+        int copyNum10 = numPalindrome;
 
         while (copyNum10 > 0) {
-            int lastDigit = copyNum10 % 10;
-            reverseNum10 = reverseNum10 * 10 + lastDigit;
+            int digit = copyNum10 % 10;
+            reverseNum10 = reverseNum10 * 10 + digit;
             copyNum10 /= 10;
         }
 
-        if (reverseNum10 == num10) {
-            System.out.println("Число: " + num10 + " является палиндромом");
+        if (reverseNum10 == numPalindrome) {
+            System.out.println("Число: " + numPalindrome + " является палиндромом");
         } else {
-            System.out.println("Число: " + num10 + " не является палиндромом");
+            System.out.println("Число: " + numPalindrome + " не является палиндромом");
         }
 
         //9 task
@@ -180,7 +172,7 @@ public class CyclesTheme {
         int sum1 = 0;
         int sum2 = 0;
         int halfNum = 1;
-        
+
         while (luckyNum > 0) {
             int digit = luckyNum % 10;
             if (halfNum <= 3) {
