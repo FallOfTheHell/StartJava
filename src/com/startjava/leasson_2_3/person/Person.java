@@ -11,9 +11,15 @@ public class Person {
 
     void sitDown(){}
 
-    void run(){}
+    boolean run(){
+        return true;
+    }
 
-    void speak(){}
+    String speak(){
+        return "умеет говорить";
+    }
 
-    void learnJava(){}
+    String learnJava(){
+        return "Учит Java";
+    }
 }
