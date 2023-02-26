@@ -21,6 +21,5 @@ public class GuessNumberTest {
         GuessNumber guessNumber = new GuessNumber(player, player2);
 
         guessNumber.gameProcess();
-
     }
 }

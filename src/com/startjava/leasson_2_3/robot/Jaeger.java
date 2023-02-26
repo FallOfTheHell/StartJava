@@ -16,7 +16,18 @@ public class Jaeger {
         this.armor = armor;
     }
 
-    public Jaeger() {
+    public Jaeger() {}
+
+    public boolean isDrift() {
+        return true;
+    }
+
+    public void move(){
+        System.out.println("Moving");
+    }
+
+    public void useVortexCannon(){
+        System.out.println("activated");
     }
 
     public String getName() {

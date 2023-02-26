@@ -18,7 +18,6 @@ public class GuessNumber {
         Random random = new Random();
         int secretNumber = random.nextInt(100) + 1;
         int attempts = 0;
-	System.out.println(secretNumber);
 
         System.out.println("Угадайте число от 1 до 100");
 
@@ -26,9 +25,10 @@ public class GuessNumber {
             System.out.print("Введите число: ");
             int playerNum = scanner.nextInt();
             attempts++;
+            System.out.println(secretNumber);
 
             if (playerNum == secretNumber) {
-                System.out.printf("Поздравляем, %s угадал число за %d попыток!\n",human.getName() ,attempts);
+                System.out.printf("Поздравляем, %s угадал число за %d попыток!\n", human.getName(), attempts);
                 System.out.print("Хотите продолжить игру? [yes/no]: ");
 
                 while (true) {

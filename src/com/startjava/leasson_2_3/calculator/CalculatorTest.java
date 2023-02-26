@@ -21,19 +21,18 @@ public class CalculatorTest {
 
             System.out.print("Хотите продолжить вычисления? [yes/no] ");
 
-            while (true){
+            while (true) {
                 String answer = scanner.next().toLowerCase();
-                if (answer.equals("yes")){
+                if (answer.equals("yes")) {
                     System.out.println("Продолжаем вычисления");
                     break;
-                } else if (answer.equals("no")){
+                } else if (answer.equals("no")) {
                     System.out.println("Досвидания!");
                     return;
                 } else {
                     System.out.print("Пожалуйста, введите yes или no: ");
                 }
             }
-        }while (true);
-
+        } while (true);
     }
 }

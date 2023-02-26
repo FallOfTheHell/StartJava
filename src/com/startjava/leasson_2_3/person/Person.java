@@ -7,19 +7,21 @@ public class Person {
     float weight = 80.5f;
     int age = 21;
 
-    void go(){}
+    void go() {
+    }
 
-    void sitDown(){}
+    void sitdown() {
+    }
 
-    boolean run(){
+    boolean isRun() {
         return true;
     }
 
-    String speak(){
+    String speak() {
         return "умеет говорить";
     }
 
-    String learnJava(){
+    String learnJava() {
         return "Учит Java";
     }
 }
