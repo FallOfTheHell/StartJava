@@ -10,7 +10,7 @@ public class Person {
     void go() {
     }
 
-    void sitdown() {
+    void sit() {
     }
 
     boolean isRun() {

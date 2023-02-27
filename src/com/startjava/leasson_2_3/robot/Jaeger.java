@@ -8,26 +8,15 @@ public class Jaeger {
     private int strength;
     private int armor;
 
+    public Jaeger() {
+    }
+
     public Jaeger(String name, double weight, int speed, int strength, int armor) {
         this.name = name;
         this.weight = weight;
         this.speed = speed;
         this.strength = strength;
         this.armor = armor;
-    }
-
-    public Jaeger() {}
-
-    public boolean isDrift() {
-        return true;
-    }
-
-    public void move(){
-        System.out.println("Moving");
-    }
-
-    public void useVortexCannon(){
-        System.out.println("activated");
     }
 
     public String getName() {
@@ -68,5 +57,17 @@ public class Jaeger {
 
     public void setArmor(int armor) {
         this.armor = armor;
+    }
+
+    public boolean isDrift() {
+        return true;
+    }
+
+    public void move() {
+        System.out.println("Moving");
+    }
+
+    public void useVortexCannon() {
+        System.out.println("activated");
     }
 }

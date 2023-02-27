@@ -2,7 +2,6 @@ package com.startjava.leasson_2_3.robot;
 
 public class JaegerTest {
     public static void main(String[] args) {
-        Jaeger mark1 = new Jaeger("Mark-1", 2.412, 3, 10, 10);
         Jaeger mark4 = new Jaeger();
 
         mark4.setName("Crimson Typhoon");
@@ -10,6 +9,8 @@ public class JaegerTest {
         mark4.setSpeed(9);
         mark4.setStrength(8);
         mark4.setArmor(6);
+
+        Jaeger mark1 = new Jaeger("Mark-1", 2.412, 3, 10, 10);
 
         mark1.setName("Cherno Alpha");
         mark1.setWeight(2.411);
