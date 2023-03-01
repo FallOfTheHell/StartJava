@@ -7,8 +7,8 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
 
-        String word = "";
-        while (!word.equals("no")) {
+        String userAnswer = "";
+        while (!userAnswer.equals("no")) {
             System.out.print("Введите первое число: ");
             calculator.setNum1(scanner.nextInt());
 
@@ -22,16 +22,11 @@ public class CalculatorTest {
 
             System.out.print("Хотите продолжить вычисления? [yes/no] ");
 
-            word = scanner.next().toLowerCase();
+            userAnswer = scanner.next().toLowerCase();
 
-            while (!word.equals("yes") || !word.equals("no")) {
-                // TODO: Можно пожалуйста объяснить почему не работает запись
-                //  "!word.equals("yes") || !word.equals("no")" я же указываю что
-                //  если не верно введено да или нет, то выполняем цикл пока не будет введено верно.
-                //  а вот эта запись почему-то работает "!word.equals("yes") && !word.equals("no")"
-                //  можно пожалуйста объяснить))
+            while (!userAnswer.equals("yes") && !userAnswer.equals("no")) {
                 System.out.print("Пожалуйста, введите 'yes' или 'no': ");
-                word = scanner.next().toLowerCase();
+                userAnswer = scanner.next().toLowerCase();
             }
         }
     }
