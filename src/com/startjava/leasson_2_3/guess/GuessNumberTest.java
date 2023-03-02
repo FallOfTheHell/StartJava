@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class GuessNumberTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите ник первый человека: ");
+        System.out.print("Введите ник первого игрока: ");
         String name1 = scanner.nextLine();
 
-        System.out.print("Введите ник второй человека: ");
+        System.out.print("Введите ник второго игрока: ");
         String name2 = scanner.nextLine();
 
         Player player1 = new Player(name1);
