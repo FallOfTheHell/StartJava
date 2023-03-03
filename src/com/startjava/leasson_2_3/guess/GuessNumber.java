@@ -18,25 +18,38 @@ public class GuessNumber {
 
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-        int secretNumber = random.nextInt(100) + 1;
+        int secretNum = random.nextInt(100) + 1;
         int attempts = 0;
 
         System.out.println("Угадайте число от 1 до 100");
-        int playerNum;
+        int playerNum1;
+        int playerNum2;
 
         do {
-            System.out.print("Введите число: ");
-            playerNum = scanner.nextInt();
-            attempts++;
+            System.out.print(player1.getName() + " вводит число: ");
+            playerNum1 = scanner.nextInt();
 
-            if (playerNum == secretNumber) {
+            if (playerNum1 == secretNum) {
                 System.out.printf("Поздравляем, %s угадал число за %d попыток!\n", player1.getName(), attempts);
                 return;
-            } else if (playerNum < secretNumber) {
-                System.out.printf("Число %d больше того, что загадал %s\n", playerNum, player2.getName());
+            } else if (playerNum1 < secretNum) {
+                System.out.printf("Число %d больше того, что загадал компьютер\n", playerNum1);
             } else {
-                System.out.printf("Число %d больше того, что загадал %s\n", playerNum, player2.getName());
+                System.out.printf("Число %d больше того, что загадал компьютер\n", playerNum1);
             }
+
+            System.out.print(player2.getName() + " вводит число: ");
+            playerNum2 = scanner.nextInt();
+            attempts++;
+            if (playerNum2 == secretNum) {
+                System.out.printf("Поздравляем, %s угадал число за %d попыток!\n", player2.getName(), attempts);
+                return;
+            } else if (playerNum2 < secretNum) {
+                System.out.printf("Число %d больше того, что загадал компьютер\n", playerNum2);
+            } else {
+                System.out.printf("Число %d больше того, что загадал компьютер\n", playerNum2);
+            }
+
         } while (true);
     }
 }
