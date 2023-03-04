@@ -16,40 +16,43 @@ public class GuessNumber {
     public void launch() {
         System.out.println("Добро пожаловать в игру!");
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scannerNum = new Scanner(System.in);
         Random random = new Random();
         int secretNum = random.nextInt(100) + 1;
-        int attempts = 0;
+        int attemptsNum = 0;
 
         System.out.println("Угадайте число от 1 до 100");
-        int playerNum1;
-        int playerNum2;
 
         do {
-            System.out.print(player1.getName() + " вводит число: ");
-            playerNum1 = scanner.nextInt();
+            int playerNum;
 
-            if (playerNum1 == secretNum) {
-                System.out.printf("Поздравляем, %s угадал число за %d попыток!\n", player1.getName(), attempts);
+            System.out.print(player1.getName() + " вводит число: ");
+            playerNum = scannerNum.nextInt();
+
+            if (playerNum == secretNum) {
+                System.out.printf("Поздравляем, %s угадал число за %d попыток!\n", player1.getName(), attemptsNum);
                 return;
-            } else if (playerNum1 < secretNum) {
-                System.out.printf("Число %d больше того, что загадал компьютер\n", playerNum1);
+            }
+            if (playerNum < secretNum) {
+                System.out.printf("Число %d больше того, что загадал компьютер\n", playerNum);
             } else {
-                System.out.printf("Число %d больше того, что загадал компьютер\n", playerNum1);
+                System.out.printf("Число %d больше того, что загадал компьютер\n", playerNum);
             }
 
             System.out.print(player2.getName() + " вводит число: ");
-            playerNum2 = scanner.nextInt();
-            attempts++;
-            if (playerNum2 == secretNum) {
-                System.out.printf("Поздравляем, %s угадал число за %d попыток!\n", player2.getName(), attempts);
-                return;
-            } else if (playerNum2 < secretNum) {
-                System.out.printf("Число %d больше того, что загадал компьютер\n", playerNum2);
-            } else {
-                System.out.printf("Число %d больше того, что загадал компьютер\n", playerNum2);
-            }
+            playerNum = scannerNum.nextInt();
 
+            attemptsNum++;
+
+            if (playerNum == secretNum) {
+                System.out.printf("Поздравляем, %s угадал число за %d попыток!\n", player2.getName(), attemptsNum);
+                return;
+            }
+            if (playerNum < secretNum) {
+                System.out.printf("Число %d больше того, что загадал компьютер\n", playerNum);
+            } else {
+                System.out.printf("Число %d больше того, что загадал компьютер\n", playerNum);
+            }
         } while (true);
     }
 }
