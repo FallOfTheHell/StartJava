@@ -16,7 +16,7 @@ public class GuessNumber {
     public void launch() {
         System.out.println("Добро пожаловать в игру!");
 
-        Scanner scannerNum = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         int secretNum = random.nextInt(100) + 1;
         int attemptsNum = 0;
@@ -27,7 +27,7 @@ public class GuessNumber {
             int playerNum;
 
             System.out.print(player1.getName() + " вводит число: ");
-            playerNum = scannerNum.nextInt();
+            playerNum = scanner.nextInt();
 
             if (playerNum == secretNum) {
                 System.out.printf("Поздравляем, %s угадал число за %d попыток!\n", player1.getName(), attemptsNum);
@@ -40,7 +40,7 @@ public class GuessNumber {
             }
 
             System.out.print(player2.getName() + " вводит число: ");
-            playerNum = scannerNum.nextInt();
+            playerNum = scanner.nextInt();
 
             attemptsNum++;
 
