@@ -1,7 +1,11 @@
+DROP DATABASE Jaegers;
+
 CREATE DATABASE Jaegers;
 
+\c jaegers;
+
 create table Jaegers(
-  id INT PRIMARY KEY,
+  id BIGINT NOT NULL PRIMARY KEY,
   modelName VARCHAR(100),
   mark VARCHAR(100),
   height FLOAT,

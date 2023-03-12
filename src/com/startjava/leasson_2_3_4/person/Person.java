@@ -1,4 +1,4 @@
-package com.startjava.leasson_2_3.person;
+package com.startjava.leasson_2_3_4.person;
 
 public class Person {
     String gender = "Men's";

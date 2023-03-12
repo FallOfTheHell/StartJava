@@ -1,4 +1,4 @@
-package com.startjava.leasson_2_3.guess;
+package com.startjava.leasson_2_3_4.guess;
 
 import java.util.Scanner;
 
@@ -11,10 +11,7 @@ public class GuessNumberTest {
         System.out.print("Введите ник второго игрока: ");
         String name2 = scanner.nextLine();
 
-        Player player1 = new Player(name1);
-        Player player2 = new Player(name2);
-
-        GuessNumber game = new GuessNumber(player1, player2);
+        GuessNumber game = new GuessNumber(new Player(name1), new Player(name2));
 
         String playerAnswer = " ";
         do {
