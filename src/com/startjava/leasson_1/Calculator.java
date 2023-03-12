@@ -1,4 +1,4 @@
-package com.startjava.leasson_1.final;
+package com.startjava.leasson_1;
 
 public class Calculator {
     public static void main(String[] args) {
