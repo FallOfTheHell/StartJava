@@ -90,12 +90,12 @@ public class ArrayTheme {
         for (int i = 0; i < randomNums.length; i++) {
             if (i <= middleIndex) {
                 System.out.printf("%8.3f", randomNums[i]);
-            }else {
+            } else {
                 numZeros++;
                 randomNums[i] = 0;
                 System.out.printf("%8.3f", randomNums[i]);
             }
-            if (i == middleIndex){
+            if (i == middleIndex) {
                 System.out.println();
             }
         }
