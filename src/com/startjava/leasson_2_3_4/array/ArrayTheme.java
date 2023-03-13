@@ -27,17 +27,19 @@ public class ArrayTheme {
 
     private static void reverseArrayValues() {
         System.out.println("1. Реверс значений массива");
-        int[] arrayNum = {1, 5, 2, 4, 3, 7, 6};
+        int[] intsArray = {1, 5, 2, 4, 3, 7, 6};
 
         System.out.println("\nДо модификации");
-        for (int i = arrayNum.length - 1; i >= 0; i--) {
-            System.out.print(arrayNum[i] + " ");
+        System.out.println(Arrays.toString(intsArray));
+
+        for (int i = 0; i < intsArray.length / 2; i++) {
+            int temp = intsArray[i];
+            intsArray[i] = intsArray[intsArray.length - 1 - i];
+            intsArray[intsArray.length - 1 - i] = temp;
         }
 
         System.out.println("\nПосле модификации");
-        for (int i = 0; i < arrayNum.length; i++) {
-            System.out.print(arrayNum[i] + " ");
-        }
+        System.out.println(Arrays.toString(intsArray));
     }
 
     private static void productArrayElements() {
@@ -49,10 +51,10 @@ public class ArrayTheme {
         }
 
         int result = 1;
-        for (int i = 1; i < productArray.length - 1;i++) {
+        for (int i = 1; i < productArray.length - 1; i++) {
             productArray[i] = i;
             result *= productArray[i];
-            System.out.print(productArray[i] + (i < 8 ? " * " : " = " + result));
+            System.out.print(productArray[i] + (i < productArray[productArray.length - 2] ? " * " : " = " + result));
         }
         System.out.println("\n" + productArray[0] + " " + productArray[9]);
     }
@@ -62,16 +64,17 @@ public class ArrayTheme {
 
         Random random = new Random();
 
-        double[] array = new double[15];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextDouble();
+        double[] randomNums = new double[15];
+        for (int i = 0; i < randomNums.length; i++) {
+            randomNums[i] = random.nextDouble();
         }
 
-        int middleIndex = array.length / 2;
+        int middleIndex = randomNums.length / 2;
+        double middleValue = randomNums[middleIndex];
 
         System.out.println("Исходный массив:");
-        for (int i = 0; i < array.length; i++) {
-            System.out.printf("%8.3f", array[i]);
+        for (int i = 0; i < randomNums.length; i++) {
+            System.out.printf("%8.3f", randomNums[i]);
             if (i == middleIndex) {
                 System.out.println();
             }
@@ -80,21 +83,35 @@ public class ArrayTheme {
 
         int numZeros = 0;
 
+        //TODO: Я вообще без понятия как изменить этот "метод",
+        // чтобы было правильно,
+        // можно хотя бы пару подсказок как реализовать правильно
         System.out.println("\nИзмененный массив:");
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < randomNums.length; i++) {
             if (i <= middleIndex) {
-                System.out.printf("%8.3f", array[i]);
+                System.out.printf("%8.3f", randomNums[i]);
             }else {
                 numZeros++;
-                array[i] = 0;
-                System.out.printf("%8.3f", array[i]);
+                randomNums[i] = 0;
+                System.out.printf("%8.3f", randomNums[i]);
             }
             if (i == middleIndex){
                 System.out.println();
             }
         }
 
+
         System.out.println("\nКоличество обнуленных ячеек: " + numZeros);
+    }
+
+    //TODO: Логично ли я назвал метод отвечающий за ввод массива?
+    public static void outputElementArray(double[] arr, int middleIndex) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.printf("%8.3f", arr[i]);
+            if (i == middleIndex) {
+                System.out.println();
+            }
+        }
     }
 
     private static void ladderArrayReverse() {
@@ -116,30 +133,30 @@ public class ArrayTheme {
     private static void generationUniqueNumbers() {
         System.out.println("\n5. Генерация уникальных чисел");
 
-        int[] uniqueNum = new int[30];
-        int endRange = 0;
+        int[] uniqueNums = new int[30];
+        int increasingNum = 0;
 
-        while (endRange < uniqueNum.length) {
+        while (increasingNum < uniqueNums.length) {
             boolean unique = false;
             int numRandom = (int) (Math.random() * 40) + 60;
 
-            for (int i = 0; i < endRange; i++) {
-                if (uniqueNum[i] == numRandom) {
+            for (int i = 0; i < increasingNum; i++) {
+                if (uniqueNums[i] == numRandom) {
                     unique = true;
                     break;
                 }
             }
 
             if (!unique) {
-                uniqueNum[endRange] = numRandom;
-                endRange++;
+                uniqueNums[increasingNum] = numRandom;
+                increasingNum++;
             }
         }
 
         int count = 1;
-        Arrays.sort(uniqueNum);
-        for (int i = 0; i < uniqueNum.length; i++) {
-            System.out.printf("%3d ", uniqueNum[i]);
+        Arrays.sort(uniqueNums);
+        for (int i = 0; i < uniqueNums.length; i++) {
+            System.out.printf("%3d ", uniqueNums[i]);
             count++;
             if (count == 11) {
                 System.out.println();
@@ -160,7 +177,7 @@ public class ArrayTheme {
             }
         }
 
-        String[] destStrings = new String[srcStrings.length];
+        String[] destStrings = new String[count];
         System.arraycopy(srcStrings, 0, destStrings, 0, count);
         System.out.println(Arrays.toString(destStrings));
     }
