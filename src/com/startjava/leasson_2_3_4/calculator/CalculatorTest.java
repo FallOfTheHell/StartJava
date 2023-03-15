@@ -4,32 +4,24 @@ import java.util.Scanner;
 
 public class CalculatorTest {
     public static void main(String[] args) {
-        Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
-
         String userAnswer = "";
-        while (!userAnswer.equals("no")) {
+
+        while (true) {
             System.out.print("Введите математическое выражение: ");
-            userAnswer = scanner.nextLine();
-            String[] words = userAnswer.split(" ");
-
-            for (int i = 0; i < words.length; i++) {
-                words[i] = words[i].trim();
-            }
-
-            calculator.setNum1(Integer.parseInt(words[0]));
-            calculator.setMathOperation(words[1].charAt(0));
-            calculator.setNum2(Integer.parseInt(words[2]));
-
-            calculator.calculate();
-
+            Calculator calculator = new Calculator(scanner.nextLine());
+            double result = calculator.calculate();
+            System.out.printf("Результат: %.3f%n", result);
             System.out.print("Хотите продолжить вычисления? [yes/no] ");
-
             userAnswer = scanner.nextLine().toLowerCase();
-
-            while (!userAnswer.equals("yes") && !userAnswer.equals("no")) {
+            if (userAnswer.equals("no")) {
+                return;
+            } else if (!userAnswer.equals("yes")) {
                 System.out.print("Пожалуйста, введите 'yes' или 'no': ");
                 userAnswer = scanner.nextLine().toLowerCase();
+                if (userAnswer.equals("no")) {
+                    return;
+                }
             }
         }
     }

@@ -32,14 +32,13 @@ public class ArrayTheme {
 
         System.out.println("\nДо модификации\n" + Arrays.toString(intsArray));
 
-        for (int i = 0; i < length / 2; i++) {
+        for (int i = 0; i <= length / 2; i++) {
             int temp = intsArray[i];
-            intsArray[i] = intsArray[length - i - 1];
-            intsArray[length - i - 1] = temp;
+            length--;
+            intsArray[i] = intsArray[length];
+            intsArray[length] = temp;
+            //TODO: я же правильно понял что от меня требовалось?
         }
-        //TODO: Если честно, у меня даже идей нет как можно сделать код проще,
-        // "упрости код так, чтобы вместо intsArray.length - 1 - i было intsArray.length",
-        // можно пожалуйста пару подсказок что нужно сделать))
 
         System.out.println("\nПосле модификации\n" + Arrays.toString(intsArray));
     }
@@ -56,7 +55,7 @@ public class ArrayTheme {
         int result = 1;
         for (int i = 1; i < length - 1; i++) {
             result *= multipliers[i];
-            System.out.print(multipliers[i] + (i < multipliers[length - 2] ? " * " : " = " + result));
+            System.out.print(multipliers[i] + (i < length - 2 ? " * " : " = " + result));
         }
         System.out.println("\n" + multipliers[0] + " " + multipliers[9]);
     }
@@ -67,18 +66,18 @@ public class ArrayTheme {
         Random random = new Random();
         double[] randomNums = new double[15];
         int length = randomNums.length;
-        int numZeros = 0;
 
         for (int i = 0; i < length; i++) {
             randomNums[i] = random.nextDouble();
         }
 
         int middleIndex = length / 2;
-        double middleValue = randomNums[middleIndex];
 
         System.out.println("Исходный массив:");
         outputNums(randomNums, middleIndex);
 
+        int numZeros = 0;
+        double middleValue = randomNums[middleIndex];
         System.out.println("\nИзмененный массив:");
         for (int i = 0; i < length; i++) {
             if (randomNums[i] >= middleValue) {
