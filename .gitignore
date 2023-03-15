@@ -2,5 +2,4 @@ out/*
 *.class
 .idea/
 *.iml
-options
-optionsj
+calculator/*.*
