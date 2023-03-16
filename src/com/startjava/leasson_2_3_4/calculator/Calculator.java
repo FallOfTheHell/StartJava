@@ -1,32 +1,12 @@
 package com.startjava.leasson_2_3_4.calculator;
 
 public class Calculator {
-    //TODO: Нужно ли тут переменные(num1, num2, mathOperation) если они используются только в данном классе?
     private int num1;
     private int num2;
     private char mathOperation;
 
-    private String expression;
-
-    public Calculator(String expression) {
-        this.expression = expression;
-    }
-
-    //TODO: Нужно ли оставлять сеттеры если они пока что не используются?
-    public void setNum1(int num1) {
-        this.num1 = num1;
-    }
-
-    public void setNum2(int num2) {
-        this.num2 = num2;
-    }
-
-    public void setMathOperation(char mathOperation) {
-        this.mathOperation = mathOperation;
-    }
-
-    public double calculate() {
-        String[] parts = expression.split(" ");
+    public double calculate(String matExpression) {
+        String[] parts = matExpression.split(" ");
 
         for (int i = 0; i < parts.length; i++) {
             parts[i] = parts[i].trim();
@@ -45,13 +25,17 @@ public class Calculator {
             case '^' -> (int) Math.pow(num1, num2);
             default -> 0;
         };
+        return result;
+    }
 
-        //TODO: Что-то я не совсем понимаю, почему "result" не преобразуется в int...
-        // Можно пожалуйста объяснить)
-        if (result % 1 == 0) {
-            return (int) result;
+    public void printResult(double result) {
+        // Сделал отдельный метод чтобы не засорять код
+        if (result == 0.0) {
+            //TODO: Правильно ли я указал "(int) result"?,
+            // потому что idea подсказывает что лучше написать "0".
+            System.out.printf("Результат: %d%n", (int) result);
         } else {
-            return result;
+            System.out.printf("Результат: %.3f%n", result);
         }
     }
 }

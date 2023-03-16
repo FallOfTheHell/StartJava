@@ -4,24 +4,22 @@ import java.util.Scanner;
 
 public class CalculatorTest {
     public static void main(String[] args) {
+        Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
         String userAnswer = "";
 
-        while (true) {
+        while (!userAnswer.equals("no")) {
             System.out.print("Введите математическое выражение: ");
-            Calculator calculator = new Calculator(scanner.nextLine());
-            double result = calculator.calculate();
-            System.out.printf("Результат: %.3f%n", result);
+            double result = calculator.calculate(scanner.nextLine());
+            calculator.printResult(result);
             System.out.print("Хотите продолжить вычисления? [yes/no] ");
             userAnswer = scanner.nextLine().toLowerCase();
-            if (userAnswer.equals("no")) {
-                return;
-            } else if (!userAnswer.equals("yes")) {
+            //TODO: Если использовать оператор "if",
+            // то получается мы сможем попросить пользователя один раз.
+            // Или так и было задумано?
+            if (!userAnswer.equals("yes") && !userAnswer.equals("no")) {
                 System.out.print("Пожалуйста, введите 'yes' или 'no': ");
                 userAnswer = scanner.nextLine().toLowerCase();
-                if (userAnswer.equals("no")) {
-                    return;
-                }
             }
         }
     }

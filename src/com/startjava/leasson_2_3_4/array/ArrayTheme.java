@@ -32,12 +32,11 @@ public class ArrayTheme {
 
         System.out.println("\nДо модификации\n" + Arrays.toString(intsArray));
 
-        for (int i = 0; i <= length / 2; i++) {
+        for (int i = 0; i <= length; i++) {
             int temp = intsArray[i];
             length--;
             intsArray[i] = intsArray[length];
             intsArray[length] = temp;
-            //TODO: я же правильно понял что от меня требовалось?
         }
 
         System.out.println("\nПосле модификации\n" + Arrays.toString(intsArray));
@@ -77,10 +76,10 @@ public class ArrayTheme {
         outputNums(randomNums, middleIndex);
 
         int numZeros = 0;
-        double middleValue = randomNums[middleIndex];
+        double middleCellValue = randomNums[middleIndex];
         System.out.println("\nИзмененный массив:");
         for (int i = 0; i < length; i++) {
-            if (randomNums[i] >= middleValue) {
+            if (randomNums[i] >= middleCellValue) {
                 numZeros++;
                 randomNums[i] = 0;
             }
