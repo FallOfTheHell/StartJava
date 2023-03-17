@@ -1,6 +1,9 @@
 \echo 'выведите всю таблицу'
 SELECT * FROM Jaegers;
 
+\echo 'отобразите только не уничтоженных роботов'
+SELECT * FROM robots WHERE status <> 'destroyed';
+
 \echo 'отобразите роботов нескольких серий: Mark-1 и Mark-4'
 SELECT * FROM Jaegers 
 WHERE mark IN ('Mark-4', 'Mark-1');
@@ -23,3 +26,9 @@ WHERE kaijuKill = (SElECT MAX(kaijuKill) FROM Jaegers);
 
 \echo 'отобразите средний вес роботов'
 SELECT AVG(weight) FROM Jaegers;
+
+\echo 'увеличьте на единицу количество уничтоженных kaiju у роботов, которые до сих пор не разрушены'
+UPDATE jaegers SET kaijukill = kaijukill + 1 WHERE status != 'Destroyed';
+
+\echo 'удалите уничтоженных роботов' 
+DELETE FROM jaegers WHERE status = 'Destroyed';

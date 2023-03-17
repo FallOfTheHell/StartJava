@@ -11,13 +11,16 @@ public class CalculatorTest {
         while (!userAnswer.equals("no")) {
             System.out.print("Введите математическое выражение: ");
             double result = calculator.calculate(scanner.nextLine());
-            calculator.printResult(result);
+            if (result == 0) {
+                System.out.printf("Результат: %d%n", 0);
+            } else if (Math.floor(result) == result) {
+                System.out.printf("Результат: %d%n", (int) result);
+            } else {
+                System.out.printf("Результат: %.3f%n", result);
+            }
             System.out.print("Хотите продолжить вычисления? [yes/no] ");
             userAnswer = scanner.nextLine().toLowerCase();
-            //TODO: Если использовать оператор "if",
-            // то получается мы сможем попросить пользователя один раз.
-            // Или так и было задумано?
-            if (!userAnswer.equals("yes") && !userAnswer.equals("no")) {
+            if (!userAnswer.equals("yes")) {
                 System.out.print("Пожалуйста, введите 'yes' или 'no': ");
                 userAnswer = scanner.nextLine().toLowerCase();
             }

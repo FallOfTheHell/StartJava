@@ -16,7 +16,7 @@ public class Calculator {
         mathOperation = parts[1].charAt(0);
         num2 = Integer.parseInt(parts[2]);
 
-        double result = switch (mathOperation) {
+        return switch (mathOperation) {
             case '+' -> Math.addExact(num1, num2);
             case '-' -> Math.subtractExact(num1, num2);
             case '*' -> Math.multiplyExact(num1, num2);
@@ -25,17 +25,5 @@ public class Calculator {
             case '^' -> (int) Math.pow(num1, num2);
             default -> 0;
         };
-        return result;
-    }
-
-    public void printResult(double result) {
-        // Сделал отдельный метод чтобы не засорять код
-        if (result == 0.0) {
-            //TODO: Правильно ли я указал "(int) result"?,
-            // потому что idea подсказывает что лучше написать "0".
-            System.out.printf("Результат: %d%n", (int) result);
-        } else {
-            System.out.printf("Результат: %.3f%n", result);
-        }
     }
 }
