@@ -25,38 +25,45 @@ public class GuessNumber {
             int numGuesses = 0;
             while (numGuesses < 10) {
                 System.out.print(player.getName() + ", введите число: ");
-                int guess = readGuess();
-
+                int guess = inputNumber();
                 numGuesses++;
-                player.addGuess(guess, numGuesses);
+                player.addAttempt(guess);
+                printNumber(guess, secretNum);
 
-                if (guess > secretNum){
-                    System.out.printf("Число %d больше того что загадал компьютер\n", guess);
-                } else {
-                    System.out.printf("Число %d больше того что загадал компьютер\n", guess);
-                }
                 if (guess == secretNum) {
-                    System.out.println("Игрок " + player.getName() + " угадал число " + secretNum + " с " + numGuesses + " попытки");
+                    System.out.println("Игрок " + player.getName() + " угадал число " + secretNum
+                            + " с " + numGuesses + " попытки");
                     break;
                 } else if (numGuesses == 10) {
                     System.out.println("У " + player.getName() + " закончились попытки");
                 }
             }
         }
-
-        System.out.print("\nВсе названные игроками числа: ");
-        for (Player player : players) {
-            System.out.print(Arrays.toString(player.getAttempts()) + " ");
-        }
-        System.out.println();
+        printFinalNumber();
     }
 
-    private int readGuess() {
+    private int inputNumber() {
         Scanner scanner = new Scanner(System.in);
         while (!scanner.hasNextInt()) {
             System.out.print("Некорректный ввод. Попробуйте еще раз: ");
             scanner.next();
         }
         return scanner.nextInt();
+    }
+
+    private void printNumber(int guess, int secretNum) {
+        if (guess > secretNum) {
+            System.out.printf("Число %d больше того что загадал компьютер\n", guess);
+        } else {
+            System.out.printf("Число %d больше того что загадал компьютер\n", guess);
+        }
+    }
+
+    private void printFinalNumber() {
+        System.out.print("\nВсе названные игроками числа: ");
+        for (Player player : players) {
+            System.out.print(Arrays.toString(player.getAttempts()) + " ");
+        }
+        System.out.println();
     }
 }

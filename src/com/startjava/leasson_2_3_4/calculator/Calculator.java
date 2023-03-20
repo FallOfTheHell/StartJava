@@ -1,9 +1,6 @@
 package com.startjava.leasson_2_3_4.calculator;
 
 public class Calculator {
-    private int num1;
-    private int num2;
-    private char mathOperation;
 
     public double calculate(String matExpression) {
         String[] parts = matExpression.split(" ");
@@ -12,9 +9,9 @@ public class Calculator {
             parts[i] = parts[i].trim();
         }
 
-        num1 = Integer.parseInt(parts[0]);
-        mathOperation = parts[1].charAt(0);
-        num2 = Integer.parseInt(parts[2]);
+        int num1 = Integer.parseInt(parts[0]);
+        char mathOperation = parts[1].charAt(0);
+        int num2 = Integer.parseInt(parts[2]);
 
         return switch (mathOperation) {
             case '+' -> Math.addExact(num1, num2);
