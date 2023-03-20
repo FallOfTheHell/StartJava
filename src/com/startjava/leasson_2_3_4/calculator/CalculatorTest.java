@@ -9,8 +9,6 @@ public class CalculatorTest {
         String userAnswer = "yes";
 
         while (!userAnswer.equals("no")) {
-            //TODO: Если это то что от меня требуют в задаче,
-            // то я исправлю так же в GuessNumberTest
             if (userAnswer.equals("yes")) {
                 System.out.print("Введите математическое выражение: ");
                 double result = calculator.calculate(scanner.nextLine());
@@ -30,17 +28,6 @@ public class CalculatorTest {
             System.out.printf("Результат: %d%n", (int) result);
         } else {
             System.out.printf("Результат: %.3f%n", result);
-        }
-    }
-
-    //TODO: Если было дело не в рекурсии, то тогда я не знаю как решить без вложенного while
-    private static String getUserAnswer(Scanner scanner) {
-        String userAnswer = scanner.nextLine().toLowerCase();
-        if (userAnswer.equals("yes") || userAnswer.equals("no")) {
-            return userAnswer;
-        } else {
-            System.out.print("Пожалуйста, введите 'yes' или 'no': ");
-            return getUserAnswer(scanner);
         }
     }
 }

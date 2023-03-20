@@ -6,7 +6,7 @@ public class Player {
     private String name;
     private int[] attempts;
 
-    private int count = 10;
+    private int count;
 
     public Player(String name) {
         this.name = name;
@@ -18,16 +18,11 @@ public class Player {
     }
 
     public int[] getAttempts() {
-        return Arrays.copyOf(attempts, attempts.length);
+        return attempts;
     }
 
     public void addAttempt(int guess) {
-        for (int i = 0; i < attempts.length; i++) {
-            if (attempts[i] == 0) {
-                attempts[i] = guess;
-                return;
-            }
-        }
+        attempts[count++] = guess;
     }
 
     public void clearAttempts() {
