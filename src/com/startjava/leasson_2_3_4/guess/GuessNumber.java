@@ -1,6 +1,5 @@
 package com.startjava.leasson_2_3_4.guess;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -33,7 +32,7 @@ public class GuessNumber {
                 continuePlaying = checkingNumber(guess, secretNum, player, numGuesses);
             }
         }
-        printFinalNumber();
+        finalNumbers();
     }
 
     private int inputNumber() {
@@ -62,7 +61,7 @@ public class GuessNumber {
         return true;
     }
 
-    private void printFinalNumber() {
+    private void finalNumbers() {
         System.out.println("\nВсе названные игроками числа");
         for (Player player : players) {
             int[] attempts = player.getAttempts();
