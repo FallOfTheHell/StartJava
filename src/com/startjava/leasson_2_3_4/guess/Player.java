@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Player {
     private String name;
-    private int[] attempts;
+    private final int[] attempts;
 
     private int count;
 
@@ -17,15 +17,19 @@ public class Player {
         return name;
     }
 
+    public int getCount() {
+        return count;
+    }
+
     public int[] getAttempts() {
-        return attempts;
+        return Arrays.copyOf(attempts, count);
     }
 
     public void addAttempt(int guess) {
         attempts[count++] = guess;
     }
 
-    public void clearAttempts() {
+    public void clearNumbers() {
         Arrays.fill(attempts, 0, count, 0);
     }
 }
