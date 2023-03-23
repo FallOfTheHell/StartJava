@@ -55,9 +55,10 @@ public class GuessNumber {
     }
 
     private boolean checkingAttempt(int guess, int secretNum, Player player, int numGuesses){
+        numGuesses = player.getCount();
         if (guess == secretNum) {
             System.out.println("Игрок " + player.getName() + " угадал число " + secretNum
-                    + " с " + player.getCount() + " попытки");
+                    + " с " + numGuesses + " попытки");
             return false;
         }
         if (numGuesses == 10) {

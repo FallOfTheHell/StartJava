@@ -31,5 +31,6 @@ public class Player {
 
     public void clearNumbers() {
         Arrays.fill(attempts, 0, count, 0);
+        count = 0;
     }
 }
