@@ -29,7 +29,7 @@ public class Player {
         attempts[count++] = guess;
     }
 
-    public void clearNumbers() {
+    public void clearAttempts() {
         Arrays.fill(attempts, 0, count, 0);
         count = 0;
     }
