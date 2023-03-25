@@ -30,7 +30,7 @@ public class GuessNumber {
                 int guess = inputNumber();
                 countAttempts++;
                 player.addAttempt(guess);
-                validationNum = checkNumber(guess, secretNum, player);
+                validationNum = checkNumber(secretNum, player);
             }
         }
         printAllPlayerAttempts();
@@ -45,22 +45,24 @@ public class GuessNumber {
         return scanner.nextInt();
     }
 
-    private boolean checkNumber(int guess, int secretNum, Player player) {
+    private boolean checkNumber(int secretNum, Player player) {
         int numGuesses = player.getCount();
+        int guess = player.getAttempts()[numGuesses - 1];
 
         if (guess == secretNum) {
             System.out.println("Игрок " + player.getName() + " угадал число " + secretNum
                     + " с " + numGuesses + " попытки");
             return false;
         }
+
         if (numGuesses == 10) {
             System.out.println("У " + player.getName() + " закончились попытки");
-        }
-
-        if (guess > secretNum) {
-            System.out.printf("Число %d больше того что загадал компьютер%n", guess);
         } else {
-            System.out.printf("Число %d больше того что загадал компьютер%n", guess);
+            if (guess > secretNum) {
+                System.out.printf("Число %d больше того что загадал компьютер%n", guess);
+            } else {
+                System.out.printf("Число %d больше того что загадал компьютер%n", guess);
+            }
         }
         return true;
     }
